@@ -42,9 +42,11 @@ https://pypi.org/project/people-also-ask/
 - [PyMuPDF](https://github.com/pymupdf/PyMuPDF) - Version 1.18.19
 - [wordcloud](https://pypi.org/project/wordcloud/) - Version 1.8.1
 - [matplotlib](https://matplotlib.org/) - Version 3.4.3
+- [python-docx](https://pypi.org/project/python-docx/) - Version 0.8.11
+- [python-pptx](https://python-pptx.readthedocs.io/en/latest/) - Version 0.6.21
+- [flask](https://pypi.org/project/Flask/) - Version 2.0.2
 
 # Setup
-
 
 ## Setup for MacOS M1 BigSur and higher versions
 A few of the libraries are not extensively supported for the latest MacOS M1 arm64 processor as the open source communities are yet to release an automatic installation of build dependencies for these packages. Below are the steps mentioned to setup this project for MacOS
@@ -62,6 +64,9 @@ A few of the libraries are not extensively supported for the latest MacOS M1 arm
   - `pip3 install people_also_ask`
   - `pip3 install wordcloud`
   - `python3 -m spacy download en_core_web_lg `
+  - `pip3 install python-docx`
+  - `pip3 install python-pptx`
+  - `pip3 install flask`
 
 ## For other OS  
 - run `pip install -r requirements.txt`

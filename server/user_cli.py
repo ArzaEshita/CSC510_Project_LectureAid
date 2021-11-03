@@ -4,7 +4,7 @@ import sys
 import os
 import concurrent.futures
 import pyfiglet
-from server.extract_sizes import ppt, extract_words, text_to_groupings
+from server.extract_sizes import ppt, extract_words, text_to_groupings, extract_from_docx
 import server.wordprocessing as wp
 from server.google_search import get_people_also_ask_links
 from wordcloud import WordCloud
@@ -109,6 +109,9 @@ def process_file(file_name: str, file_type: str):
     if file_type == "pdf":
         raw_data = extract_words(file_path)
     
+    if (file_type == "docx" or file_type == "doc"):
+        raw_data = extract_from_docx(file_path)
+    
     raw_data = text_to_groupings(raw_data)
     keyword_data = wp.extract_noun_chunks(raw_data)
     keyword_data = wp.merge_slide_with_same_headers(keyword_data)
@@ -117,12 +120,11 @@ def process_file(file_name: str, file_type: str):
     #generate_wordcloud(keyword_data, file_path)
 
     keyword_data = wp.duplicate_word_removal(keyword_data)
-    search_query = wp.construct_search_query(
-        keyword_data)
+    search_query = wp.construct_search_query(keyword_data)
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
         # when testing use searchquery[:10 or less].
         # Still working on better threading to get faster results
-        results = executor.map(get_people_also_ask_links, search_query[:3])
+        results = executor.map(get_people_also_ask_links, search_query)
 
     result_object = {"results": []}
 

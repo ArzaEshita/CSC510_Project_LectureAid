@@ -18,7 +18,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import CustomizedAccordions from './questions';
 import BookmarkAccordian from './bookmarks.js';
-import {mainListItems, secondaryListItems } from './listItems';
+import {MainListItems, SecondaryListItems} from './listItems';
+import { UploadFile } from './upload';
 
 const result = {
   results: [
@@ -151,11 +152,32 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
+function renderPage(navItem) {
+  if (navItem === "Upload") {
+    return (
+      <UploadFile />
+    );
+  }
+  else if (navItem === "Home") {
+    return (
+      <CustomizedAccordions
+      results = {result} >
+      </CustomizedAccordions>
+    );
+  }
+}
+
 function DashboardContent() {
   const [open, setOpen] = React.useState(true);
+  const [selectedNavItem, setNavItem] = React.useState("Home")
 
   const toggleDrawer = () => {
     setOpen(!open);
+  };
+
+  const navListHandler = (navItem) => {
+    setNavItem(navItem);
+    // console.log("Selected Nav Item " + selectedNavItem);
   };
 
   return (
@@ -206,9 +228,11 @@ function DashboardContent() {
             </IconButton>
           </Toolbar>
           <Divider />
-          <List>{mainListItems}</List>
+          <List>
+            <MainListItems clickHandler={(value) => navListHandler(value)} />
+          </List>
           <Divider />
-          <List>{secondaryListItems}</List>
+          <List><SecondaryListItems /></List>
         </Drawer>
 
         <Box
@@ -228,11 +252,9 @@ function DashboardContent() {
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <CustomizedAccordions
-                  //results = {getResults("lecture4")}
-                  results = {result}
-                  >
-                  </CustomizedAccordions>
+                  {
+                    renderPage(selectedNavItem)
+                  }
                 </Paper>
               </Grid>
             </Grid>

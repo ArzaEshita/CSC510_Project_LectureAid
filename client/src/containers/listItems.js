@@ -10,15 +10,16 @@ import HomeIcon from '@mui/icons-material/Home';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import ScreenSearchDesktopIcon from '@mui/icons-material/ScreenSearchDesktop';
 
-export const mainListItems = (
+export const MainListItems = (props) => {
+  return (
   <div>
-    <ListItem button>
+    <ListItem button={true} onClick={() => props.clickHandler("Home")}>
       <ListItemIcon>
         <HomeIcon />
       </ListItemIcon>
       <ListItemText primary="Home" />
     </ListItem>
-    <ListItem button>
+    <ListItem button={true} onClick={() => props.clickHandler("Upload")}>
       <ListItemIcon>
         <FileUploadIcon />
       </ListItemIcon>
@@ -43,9 +44,11 @@ export const mainListItems = (
       <ListItemText primary="Online Search" />
     </ListItem>
   </div>
-);
+  );
+}
 
-export const secondaryListItems = (
+export const SecondaryListItems = (props) => {
+  return (
   <div>
     <ListSubheader inset>Extra???</ListSubheader>
     <ListItem button>
@@ -67,4 +70,5 @@ export const secondaryListItems = (
       <ListItemText primary="Z" />
     </ListItem>
   </div>
-);
+  );
+}
