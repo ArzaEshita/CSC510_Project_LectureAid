@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><p><img src="https://img.shields.io/github/license/NCSU-Group7-SE2021/CSC510_Project_LectureAid" alt="GitHub">
+<img src="https://github.com/NCSU-Group7-SE2021/CSC510_Project_LectureAid/actions/workflows/node.js.yml/badge.svg" alt="Nodejs Build">
+<img src="https://github.com/NCSU-Group7-SE2021/CSC510_Project_LectureAid/actions/workflows/python.yml/badge.svg" alt="Python Build">
+<img src="https://github.com/NCSU-Group7-SE2021/CSC510_Project_LectureAid/actions/workflows/pylint.yml/badge.svg" alt="Pylint">
+<a href="https://codecov.io/gh/NCSU-Group7-SE2021/CSC510_Project_LectureAid"><img src="https://codecov.io/gh/NCSU-Group7-SE2021/CSC510_Project_LectureAid/branch/main/graph/badge.svg?token=LEKW9OSGSV" alt="codecov"></a>
+<a href="https://doi.org/10.5281/zenodo.5528349"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5528349.svg" alt="DOI"></a>
+<img src="https://img.shields.io/github/languages/top/NCSU-Group7-SE2021/CSC510_Project_LectureAid" alt="Top Language">
+<img src="https://img.shields.io/github/issues-raw/NCSU-Group7-SE2021/CSC510_Project_LectureAid" alt="GitHub issues">
+<img src="https://img.shields.io/github/issues-closed-raw/NCSU-Group7-SE2021/CSC510_Project_LectureAid" alt="GitHub closed issues">
+<img src="https://img.shields.io/github/forks/NCSU-Group7-SE2021/CSC510_Project_LectureAid?style=social" alt="GitHub forks"></p>
+<h1>LectureAid</h1>
+<p><img src="./assets/banner.png" alt="Banner"></p>
+<p>This repo contains the code for LectureAid <a href="https://github.com/mtkumar123/CSC510_Project_LectureAid/releases/tag/v1.0.0">v1.0.0</a>, a project for CSC510 Fall 21.</p>
+<p>The updated version of the project <a href="https://github.com/NCSU-Group7-SE2021/CSC510_Project_LectureAid/releases/tag/v2.0.0">v2.0.0</a> contains some interesting UI and extended application features that facilitates more seamless learning across platforms.</p>
+<h1>What is Project LectureAid?</h1>
+<p>After a long class, ever had to come back home and google everything you supposedly learnt from the lecture handout for that day's class? Ever spend ~30 - 45 minutes just to search through google and compile a list of websites that explain what you need? And then a month later when midterms are around a corner, ever spend that same 30-45 minutes trying to find those websites again cause you forgot to bookmark them?</p>
+<p>Project LectureAid hopes to solve that hassle for you.</p>
+<h2>Phase 1 Features</h2>
+<p>Upload your lecture pdf, word doc or powerpoint to our user based terminal menu, and LectureAid will extract the text, process it, and search the internet for key topics from that lecture. Once it finds relevant results, LectureAid opens up a browser window with a list of questions relevant to your topic, and website links that should answer said questions, and also a wordcloud that highlights key words in the lecture.</p>
+<h2>Phase 2 Feature update</h2>
+<p>The updated release of this project provides some super cool features to improve the user experience and support multiple file formats.</p>
+<p>Here are the list of features we have added:</p>
+<ol>
+<li>
+<p>Extended the processing support to different filetypes:</p>
+<ul>
+<li>Word Document (.doc, .docx)</li>
+<li>Powerpoint Presentation (.pptx)</li>
+<li>Text Files (.txt)</li>
+<li>Markdown Files (.md)</li>
+</ul>
+</li>
+<li>
+<p>Extract answers from the crawled websites and provide a brief overview of the answers. Include the link to read further.</p>
+</li>
+<li>
+<p>An interactive User Interface to help user learn better and in a more appealing way.</p>
+</li>
+<li>
+<p>Capability to upload file through the UI.</p>
+</li>
+<li>
+<p>Adding a bookmark feature to have important questions handy.</p>
+</li>
+<li>
+<p>Minor improvements in processing data, getting related questions and answers.</p>
+</li>
+</ol>
+<h1>Technologies Used</h1>
+<h2>The usual backend story</h2>
+<ol>
+<li>
+<p>Text Extraction from pdfs was done with the help of PyMuPDF. Documentation can be viewed here:
+https://pymupdf.readthedocs.io/en/latest/</p>
+</li>
+<li>
+<p>Text Extraction from word documents (docx) was done with the help of python-docx. Documentation can be viewed here:
+https://python-docx.readthedocs.io/en/latest/</p>
+</li>
+<li>
+<p>Text Extraction from powerpoint presentation (pptx) was done with the help of python-pptx. Documentation can be viewed here:
+https://python-pptx.readthedocs.io/en/latest/</p>
+</li>
+<li>
+<p>Word Processing Logic was done with the help of Spacy. Documentation can be viewed here:
+https://spacy.io/api/doc</p>
+</li>
+<li>
+<p>Text extraction for powerpoint files was done with the packaga python-pptx. Documentation can be viewed here: https://python-pptx.readthedocs.io/en/latest/index.html</p>
+</li>
+<li>
+<p>Returning the questions with the relevant links was done with the help of people_also_ask library. Documentation can be seen here:
+https://pypi.org/project/people-also-ask/</p>
+</li>
+</ol>
+<h2>The interesting UI part</h2>
+<ol>
+<li>It is a React application. Documentation can be accessible here https://reactjs.org/docs/getting-started.html</li>
+<li>Material UI is way to go. https://mui.com/getting-started/installation/</li>
+</ol>
+<h1>Requirements</h1>
+<h2>Python powered Backend</h2>
+<ul>
+<li>Python (atleast 3.8) and pip</li>
+<li><a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Microsoft Visual C++ Build tools</a></li>
+<li><a href="https://github.com/googleapis/google-api-python-client">google-api-python-client</a> - Version 2.22.0 or greater</li>
+<li><a href="https://pypi.org/project/people-also-ask/">people_also_ask</a> Version 0.0.6 or greater</li>
+<li><a href="https://spacy.io/">spacy</a> - Version 3.1.2 or greater</li>
+<li><a href="https://pypi.org/project/spacy-legacy/">spacy-legacy</a> - Version 3.0.8</li>
+<li><a href="https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.1.0/en_core_web_lg-3.1.0-py3-none-any.whl">spacy models</a></li>
+<li><a href="https://pypi.org/project/pyfiglet/0.8.post1/">pyfiglet</a> - Version 0.8.post1</li>
+<li><a href="https://github.com/pymupdf/PyMuPDF">PyMuPDF</a> - Version 1.18.19</li>
+<li><a href="https://pypi.org/project/wordcloud/">wordcloud</a> - Version 1.8.1</li>
+<li><a href="https://matplotlib.org/">matplotlib</a> - Version 3.4.3</li>
+<li><a href="https://pypi.org/project/python-docx/">python-docx</a> - Version 0.8.11</li>
+<li><a href="https://python-pptx.readthedocs.io/en/latest/">python-pptx</a> - Version 0.6.21</li>
+<li><a href="https://pypi.org/project/Flask/">flask</a> - Version 2.0.2</li>
+</ul>
+<h2>React-ive Frontend</h2>
+<ul>
+<li><a href="https://nodejs.org/en/download/">NodeJS</a> 14.x or higher</li>
+<li>React v17.x</li>
+<li>MaterialUI v5.x</li>
+</ul>
+<h1>Setup</h1>
+<h2>Backend</h2>
+<h3>Setup for MacOS M1 BigSur and higher versions</h3>
+<p>A few of the libraries are not extensively supported for the latest MacOS M1 arm64 processor as the open source communities are yet to release an automatic installation of build dependencies for these packages. Below are the steps mentioned to setup this project for MacOS.</p>
+<ul>
+<li>Use the below command to cross check the version of the processor.
+<ul>
+<li><code>uname-m</code></li>
+</ul>
+</li>
+<li>Keep the <strong>python version 3.8</strong> or below for creating the virtual environment.
+<ul>
+<li><code>python3.8 -m venv &lt;environment_name&gt;</code></li>
+</ul>
+</li>
+<li>Activate the environment
+<ul>
+<li><code>source &lt;environment_name&gt;/bin/activate</code></li>
+</ul>
+</li>
+<li>After the virtual environment is setup, install all the dependencies one after another.
+<ul>
+<li><code>pip3 install pyfiglet</code></li>
+<li><code>pip3 install pymupdf</code></li>
+<li><code>pip3 install spacy</code></li>
+<li><code>pip3 install people_also_ask</code></li>
+<li><code>pip3 install wordcloud</code></li>
+<li><code>python3 -m spacy download en_core_web_lg </code></li>
+<li><code>pip3 install python-docx</code></li>
+<li><code>pip3 install python-pptx</code></li>
+<li><code>pip3 install flask</code></li>
+</ul>
+</li>
+</ul>
+<h3>For other OS</h3>
+<ul>
+<li>run <code>pip install -r requirements.txt</code>
+<ul>
+<li>this installs all of the required python libraries</li>
+</ul>
+</li>
+<li>run <code>pip install .</code>
+<ul>
+<li>this installs the project as a python package</li>
+</ul>
+</li>
+</ul>
+<h2>Frontend</h2>
+<p>Assuming the system already has NodeJS and NPM</p>
+<ul>
+<li>Go to <code>client</code> using command <code>cd client</code></li>
+<li>Run <code>npm install</code>
+<ul>
+<li>Installs the node modules required to run the web interface
+That's it !!</li>
+</ul>
+</li>
+</ul>
+<h1>How to run</h1>
+<p>User uploads the lecture pdf, word doc or powerpoint through the GUI, LectureAid process the files and displays relevant results in questions and answers format. The user can bookmark the required questions which will be stored in google chrome cache and the user can view the bookmarked questions in the bookmark tab.</p>
+<ul>
+<li><em>Step 1</em>: Run the server side - flask: (<code>python app.py</code>)</li>
+<li><em>Step 2</em>: Run the client side - react : (<code>npm start run</code>)</li>
+<li><em>Step 3</em>: Browser window displaying the upload button where the user can upload the file.</li>
+<li><em>Step 4</em>: Client processes the file and displays the question and answer.</li>
+<li><em>Step 5</em>: User can bookmark the required questions.</li>
+<li><em>Step 6</em>: User can view the bookmarked questions on the bookmarks tab.</li>
+</ul>
+<h1>Documentation</h1>
+<p>More documentation can be viewed here:
+https://mtkumar123.github.io/CSC510_Project_LectureAid/</p>
+<h1>Troubleshooting</h1>
+<ul>
+<li>When running the code/tests, I'm getting a <code>no such module named code</code> error?
+<ul>
+<li>Try prefixing the command with <code>python -m</code>, for example, <code>python -m pytest</code></li>
+</ul>
+</li>
+<li>When I try to run pip install, I'm getting an error for wordcloud relating to Microsoft C++?
+<ul>
+<li>Microsoft C++ build tools are needed to generate the wordcloud. See the requirements section for the download link.</li>
+</ul>
+</li>
+</ul>
+<h1>Future work</h1>
+<ul>
+<li>
+<h4>Host the application on a public server</h4>
+<p>Host the application on a public server and provide user account login. Build a database to store the user information and move away from google chrome cache.</p>
+</li>
+<li>
+<h4>Build a browser extension</h4>
+<p>Build a browser extension which lets the user to select text from a webpage and send a request to the application and get the links of pdf webpages.</p>
+</li>
+<li>
+<h4>Increase the concurrency efficiency</h4>
+<p>Currently, we are using the maximum number of threads (10) for running search queries, but could still be room for improvement using other multithreading/multiprocessing tools.</p>
+</li>
+<li>
+<h4>Improve Word Extraction Logic</h4>
+<p>Currently Spacy is being used to extract noun phrases from each slide/page of the document. Then the high frequency noun phrases are calculated and used in the final search query. However this causes an issue when every slide has the document’s author name and email address listed. The author name is considered as a noun phrase, and since it appears on every slide has a high frequency, and thus appears on the final search query.</p>
+</li>
+</ul>
+<h1>Contact Us</h1>
+<p>E-mail: lectureaidnscu@gmail.com</p>
+<h1>Team Members</h1>
+<h2>Phase 2 Team Members</h2>
+<ul>
+<li><a href="https://github.com/rahulkalita8">Rahul Kalita</a></li>
+<li><a href="https://github.com/vickymhs">Vignesh Muthukumar</a></li>
+<li><a href="https://github.com/ArzaEshita">Eshita Arza</a></li>
+<li><a href="https://github.com/lgdeloss">Luis</a></li>
+<li><a href="https://github.com/isha-bansal0115">Isha Gupta</a></li>
+<li><a href="https://github.com/kirantejatummuri">Kiran Teja</a></li>
+</ul>
+<h2>Phase 1 Team Members</h2>
+<ul>
+<li>Ashley King</li>
+<li>Manoj Kumar</li>
+<li>Rakesh Muppala</li>
+<li>Sayali Parab</li>
+<li>Ashwin Das</li>
+<li>Renji Joseph Sabu</li>
+</ul>
+<h2>All Contributors to-date</h2>
+<a href = "https://github.com/NCSU-Group7-SE2021/CSC510_Project_LectureAid/graphs/contributors">
+<img src = "https://contrib.rocks/image?repo=NCSU-Group7-SE2021/CSC510_Project_LectureAid"/>
+</a></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Accordion">Accordion</a></li><li><a href="global.html#AccordionDetails">AccordionDetails</a></li><li><a href="global.html#AccordionSummary">AccordionSummary</a></li><li><a href="global.html#AppBar">AppBar</a></li><li><a href="global.html#DashboardContent">DashboardContent</a></li><li><a href="global.html#Drawer">Drawer</a></li><li><a href="global.html#getBookmarksFromLocalStorage">getBookmarksFromLocalStorage</a></li><li><a href="global.html#iconStyles">iconStyles</a></li><li><a href="global.html#MainListItems">MainListItems</a></li><li><a href="global.html#Title">Title</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Nov 04 2021 16:28:35 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: questions.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: questions.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import * as React from "react";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import Button from "@mui/material/Button";
+import { Accordion, AccordionSummary, AccordionDetails } from "./commons";
+import { makeStyles } from "@mui/styles";
+import { keys } from "@mui/system";
+
+/**
+ * Defines the CSS style eleements for bookmark icons
+ * @returns {*} JSON data containing the style elements
+ */
+function iconStyles() {
+  return {
+    bookmarkedIcon: {
+      color: "dodgerblue"
+    },
+    unBookmarkedIcon: {
+      color: "grey"
+    }
+  };
+}
+
+/**
+ * Renders the customised accordian for the questions fetched from the server for the page
+ * @param {*} props contains the data passed on from the parent component
+ * @returns {Object} HTML content for the accordians
+ */
+export default function CustomizedAccordions(props) {
+  const [expanded, setExpanded] = React.useState("question0");
+  const rows = props.results.results;
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
+
+  /**
+   * Verfifies if a specific item has been bookmarked
+   * @param {Object} item contains details about the specific item
+   * @returns {boolean} true if item is bookmarked else false
+   */
+  const getButtonIcon = (item) => {
+    let results = getBookmarksFromLocalStorage();
+    if (results) {
+      let keys = Object.keys(results);
+      return keys.includes(item.answer);
+    }
+    return false;
+  };
+
+  /**
+   * Fetches the links stored in chrome cache storage
+   * @returns {Object} JSON data containing the cached information
+   */
+  const getBookmarksFromLocalStorage = () => {
+    let linksInStorage = JSON.parse(localStorage.getItem("links"));
+    return linksInStorage;
+  };
+
+  /**
+   * Adds a new bookmakred item to the cache storage
+   * @param {Object} event points to the bookmark icon component of the selected item
+   * @param {Object} item JSON data containing information about the item to be bookmarked
+   */
+  const addBookmarkToLocalStorage = (event, item) => {
+    let link = item.answer;
+    let question = item.question;
+    let simpleAnswer = item.simple_answer;
+
+    let linksInStorage = JSON.parse(localStorage.getItem("links"));
+    if (!linksInStorage) {
+      linksInStorage = {};
+    }
+
+    let links = Object.keys(linksInStorage);
+    if (
+      links.includes(link) &amp;&amp;
+      question === linksInStorage[link].question &amp;&amp;
+      simpleAnswer === linksInStorage[link].simple_answer
+    ) {
+      delete linksInStorage[link];
+      localStorage.setItem("links", JSON.stringify(linksInStorage));
+      event.target.style.color = "grey";
+    } else {
+      linksInStorage[link] = { question: question, simple_answer: simpleAnswer };
+      localStorage.setItem("links", JSON.stringify(linksInStorage));
+      event.target.style.color = "dodgerblue";
+    }
+    linksInStorage[link] = { question: question, simple_answer: simpleAnswer };
+    localStorage.setItem("links", JSON.stringify(linksInStorage));
+    event.target.style.color = "dodgerblue";
+  };
+
+  const classes = makeStyles(iconStyles)();
+
+  return (
+    &lt;div>
+      {rows.map((item, index) => (
+        //   &lt;Accordion key={"question" + index} expanded={expanded === "question" + index} onChange={handleChange("question" + index)}>
+        &lt;Accordion key={"question" + index}>
+          &lt;AccordionSummary aria-controls={"question" + index + "-content"} id={"question" + index + "-header"}>
+            &lt;Typography
+              style={{
+                marginRight: "auto"
+              }}
+            >
+              {item.question}
+            &lt;/Typography>
+            &lt;Button size="small" onClick={(e) => addBookmarkToLocalStorage(e, item)}>
+              {getButtonIcon(item) ? (
+                &lt;BookmarkIcon className={classes.bookmarkedIcon} />
+              ) : (
+                &lt;BookmarkIcon className={classes.unBookmarkedIcon} />
+              )}
+            &lt;/Button>
+          &lt;/AccordionSummary>
+          &lt;AccordionDetails>
+            &lt;Typography>{item.simple_answer}&lt;/Typography>
+            &lt;Link color="rgb(30,144,255)" underline="always" target="_blank" rel="noopener" href={item.answer}>
+              {"Link"}
+            &lt;/Link>{" "}
+          &lt;/AccordionDetails>
+        &lt;/Accordion>
+      ))}
+    &lt;/div>
+  );
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Accordion">Accordion</a></li><li><a href="global.html#AccordionDetails">AccordionDetails</a></li><li><a href="global.html#AccordionSummary">AccordionSummary</a></li><li><a href="global.html#AppBar">AppBar</a></li><li><a href="global.html#DashboardContent">DashboardContent</a></li><li><a href="global.html#Drawer">Drawer</a></li><li><a href="global.html#getBookmarksFromLocalStorage">getBookmarksFromLocalStorage</a></li><li><a href="global.html#iconStyles">iconStyles</a></li><li><a href="global.html#MainListItems">MainListItems</a></li><li><a href="global.html#Title">Title</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Nov 04 2021 16:28:35 GMT-0400 (Eastern Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
